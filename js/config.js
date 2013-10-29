@@ -20,17 +20,17 @@ define([], function () {
 
     config.baddies = {
        'alpha': {
-          'speed': 30,   // pixels/second
+          'speed': 300,   // pixels/second
           'health': 100,
           'value': 5
        },
        'beta': {
-          'speed': 24,   // pixels/second
+          'speed': 240,   // pixels/second
           'health': 120,
           'value': 8
        },
        'gamma': {
-          'speed': 45,   // pixels/second
+          'speed': 450,   // pixels/second
           'health': 70,
           'value': 15
        }
@@ -52,7 +52,7 @@ define([], function () {
            'gamma': {'num': 3, 'interval': 1000, 'delay': 3000}
        }       
     ];    
-    config.wave_length = 30000;
+    config.wave_length = 10000;
     config.wave_scatter_interval = 0;
     
     config.battlefield = {

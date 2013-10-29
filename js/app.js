@@ -61,7 +61,7 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
             
       app.wave++;
 
-      if (app.wave > config.waves.length) {
+      if (app.wave >= config.waves.length) {
         app.last_wave_away = true;
         return;
       }
@@ -99,14 +99,8 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
     
     app.iMadeIt = function (entity) {
       app.lives--;
-      if (app.lives <= 0) {
-        app.gameOver();
-      }
       app.remove(entity);
       app.baddie_count--;
-      if (app.last_wave_away && (app.baddie_count <= 0)) {
-        app.gameOver();
-      }
     }
     
     app.youGotMe = function (entity) {
@@ -114,9 +108,6 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
       app.money += entity.value;
       app.remove(entity);
       app.baddie_count--;
-      if (app.last_wave_away && (app.baddie_count <= 0)) {
-        app.gameOver();
-      }
     }
     
     app.gameOver = function () {
@@ -130,6 +121,12 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
     }
 
     app.update = function() {
+      if (app.last_wave_away && (app.baddie_count <= 0)) {
+        app.gameOver();
+      }
+      if (app.lives <= 0) {
+        app.gameOver();
+      }
       for (var idx in app.entities) {
         app.entities[idx].update();
       }
