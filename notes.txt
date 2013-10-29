@@ -1,0 +1,43 @@
+Add utils.log() ... configurable.
+
+Models:
+
+ - Game (app)
+    - Contains all other models
+    - Runs loop
+    - Lives
+    - Bank
+
+ - Battlefield
+    - Boundaries
+    - Obstacles
+    - ??
+    - Spawn
+    - End
+    
+ - Baddies (subclassed)
+    - Pathfinding?
+    - Speed
+    - Health
+    - Armor/Resistances
+    - Levels (such that the same baddies might get harder as the game progresses?)
+
+ - Towers (subclassed)
+    - Targeting
+    - Damage
+    - Rate
+    - Range
+    - Area Affect
+    - Upgrades
+
+TODO:
+  
+ * Towers
+    * Placement Collision-detection
+      * Can't place on another tower
+      * Can't place on path (w/in scatter_range px of line between waypoints)
+      * -or- Use rectangular build zones on map.
+ * SVG
+ * Tower upgrades
+ * Advanced Targeting
+ * Damage & Shield Types

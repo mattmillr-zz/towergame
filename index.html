@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tower Game</title>
+    <script data-main="js/main" 
+        src="js/require-2.1.8.js"></script>
+    <style type="text/css">
+     
+      .hidden {
+        display: none;
+      }
+    
+      div#app_view {
+      }
+
+      div#battlefield {
+        width: 640px;
+        height: 400px;
+        background-color: #3f3;
+      }
+      
+      .aiming {
+        cursor:crosshair
+      }
+      
+      div#commandcenter {
+        width: 630px;
+        height: 110px;
+        background-color: #660;
+        padding: 5px;
+        color: #ffc;
+      }
+      
+      div#app_alerts {
+        width: 640px;
+        height: 120px;
+        background-color: #ccc;
+      }
+      
+      .baddie {
+        position: absolute;
+        height: 10px;
+        width: 10px;
+        border-radius: 5px;
+        font-size: 0px;        
+        color: #fff;
+      }
+      
+      .baddie.alpha {
+        background-color: #0ff;
+        border: 1px solid #099;
+      }
+
+      .baddie.beta {
+        background-color: #f00;
+        border: 1px solid #900;
+      }
+
+      .baddie.gamma {
+        background-color: #00f;
+        border: 1px solid #009;
+      }
+      
+      .tower {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        border-radius: 2px;
+        font-size: 0px;        
+        color: #fff;
+      }
+      
+      .tower.gunner {
+        background-color: #999;
+        border: 1px solid #666;
+      }
+
+      .tower.bomber {
+        background-color: #666;
+        border: 2px solid #333;
+      }
+
+      a.cc_add_tower:link,
+      a.cc_add_tower:visited,
+      a.cc_add_tower:hover,
+      a.cc_add_tower:active {
+        color: #0ff;
+      }
+
+      a.cc_add_tower.disabled:link,
+      a.cc_add_tower.disabled:visited,
+      a.cc_add_tower.disabled:hover,
+      a.cc_add_tower.disabled:active {
+        color: #999;
+      }
+
+      a.cc_add_tower.placing:link,
+      a.cc_add_tower.placing:visited,
+      a.cc_add_tower.placing:hover,
+      a.cc_add_tower.placing:active {
+        color: #f00;
+      }
+      
+    </style>
+</head>
+<body>
+  <div id="app_view">
+    <div id="battlefield">
+    
+    </div>
+    <div id="commandcenter">
+      Lives: <span id="cc_lives"></span>
+      &nbsp;&nbsp;&nbsp; Money: $<span id="cc_money"></span>
+      <br/>
+      Wave: <span id="cc_wave_time_remaining"></span>
+      <br/>
+      <a href="#" data-tower="gunner" class="cc_add_tower">[G]</a>
+      <a href="#" data-tower="bomber" class="cc_add_tower">[B]</a>
+      <br/>
+      <span id="win_message" class="hidden">You win.</span>
+      <span id="lose_message" class="hidden">You win.</span>
+    </div>
+  </div>
+</body>
+</html>
