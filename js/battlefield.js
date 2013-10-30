@@ -70,7 +70,6 @@ define(['config', 'models', 'utils'], function (config, models, utils) {
         }
       });
       
-      
     }
     
     bf.handle_tower_button_click = function (e) {

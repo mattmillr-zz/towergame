@@ -1,4 +1,4 @@
-define(['jquery', 'config', 'utils'], function ($, config, utils) {
+define(['views', 'config', 'utils'], function (views, config, utils) {
     var models = {};
 
     models.Baddie = function (baddie_class, app) {
@@ -12,26 +12,10 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
             self.app.waypoints[self.waypoint],
             config.battlefield.scatter_range);
       self.destination = utils.copyPoint(self.loc);
-      self.bf_div = $(self.app.div).children("#battlefield");
-      self.jquery = null;
       self.health = self.class_config.health;
       self.value = self.class_config.value;
       
       utils.log('Create Baddie at ' + self.loc.x + ', ' + self.loc.y );
-      
-      self.addToDiv = function () {
-        self.jquery = $("<div></div>");
-        self.jquery.addClass('baddie');
-        self.jquery.addClass(self.baddie_class);
-        self.jquery.css('left', self.loc.x);
-        self.jquery.css('top', self.loc.y);
-        self.bf_div.append(self.jquery);
-      }
-      
-      self.updateDraw = function () {
-        self.jquery.css('left', self.loc.x);
-        self.jquery.css('top', self.loc.y);
-      }
       
       self.update = function () {
         
@@ -50,7 +34,7 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
         var distance = self.class_config.speed / 1000 * self.app.tick_length;
         self.loc.moveToward(self.destination, distance); 
 
-        self.updateDraw();
+        self.view.updateDraw();
       }
       
       self.takeHit = function (damage) {
@@ -62,10 +46,10 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
       }
 
       self.remove = function () {
-        self.jquery.remove();
+        self.view.remove();
       }
 
-      self.addToDiv();
+      self.view = new views.Baddie(self);
       return self;
     }
     
@@ -86,20 +70,8 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
       
       self.loc = utils.copyPoint(loc);
       self.firing_radius = utils.circleFromPoint(self.loc, self.range)
-
-      self.bf_div = $(self.app.div).children("#battlefield");
-      self.jquery = null;
-
+      
       self.last_shot = self.app.now;
-
-      self.addToDiv = function () {
-        self.jquery = $("<div></div>");
-        self.jquery.addClass('tower');
-        self.jquery.addClass(self.tower_class);
-        self.jquery.css('left', self.loc.x);
-        self.jquery.css('top', self.loc.y);
-        self.bf_div.append(self.jquery);
-      }
 
       self.shoot = function () {
         // Find all the baddies in range
@@ -127,13 +99,12 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
       }
 
       self.remove = function () {
-        self.jquery.remove();
+        self.view.remove();
       }
-
-      self.addToDiv();
+      
+      self.view = new views.Tower(self);
       return self;
     }
-    
     
     return models;
 

@@ -14,23 +14,23 @@ define([], function () {
 
     config.app = {
       'frame_length': 10,
-      'lives': 100,
+      'lives': 10,
       'money': 50
     };
 
     config.baddies = {
        'alpha': {
-          'speed': 300,   // pixels/second
+          'speed': 30,   // pixels/second
           'health': 100,
           'value': 5
        },
        'beta': {
-          'speed': 240,   // pixels/second
+          'speed': 24,   // pixels/second
           'health': 120,
           'value': 8
        },
        'gamma': {
-          'speed': 450,   // pixels/second
+          'speed': 45,   // pixels/second
           'health': 70,
           'value': 15
        }
@@ -72,14 +72,14 @@ define([], function () {
 
     config.towers = {
       'gunner': [
-         {'cost': 10, 'rate': 5, 'range': 40, 'damage': 5, 'available': 0},
-         {'cost': 15, 'rate': 10, 'range': 60, 'damage': 5, 'available': 0},
-         {'cost': 20, 'rate': 12, 'range': 60, 'damage': 10, 'available': 0},
-         {'cost': 30, 'rate': 15, 'range': 90, 'damage': 25, 'available': 0},
+         {'cost': 10, 'rate': 5, 'range': 40, 'damage': 8, 'available': 0},
+         {'cost': 15, 'rate': 10, 'range': 60, 'damage': 10, 'available': 0},
+         {'cost': 20, 'rate': 12, 'range': 60, 'damage': 15, 'available': 0},
+         {'cost': 30, 'rate': 15, 'range': 90, 'damage': 30, 'available': 0},
       ],
       'bomber': [
-         {'cost': 25, 'rate': 3, 'range': 70, 'damage': 45, 'available': 1},
-         {'cost': 40, 'rate': 5, 'range': 80, 'damage': 60, 'available': 1},
+         {'cost': 25, 'rate': 2, 'range': 70, 'damage': 55, 'available': 1},
+         {'cost': 40, 'rate': 3, 'range': 80, 'damage': 60, 'available': 1},
          {'cost': 50, 'rate': 5, 'range': 100, 'damage': 80, 'available': 1},
          {'cost': 75, 'rate': 10, 'range': 130, 'damage': 105, 'available': 1},
       ]
