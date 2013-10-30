@@ -106,8 +106,10 @@ define(['config', 'models', 'utils'], function (config, models, utils) {
       
       if (bf.app.game_over) {
         if (bf.app.win) {
+          $("#lose_message").addClass("hidden");
           $("#win_message").removeClass("hidden");
         } else {
+          $("#win_message").addClass("hidden");
           $("#lose_message").removeClass("hidden");
         }
       }
