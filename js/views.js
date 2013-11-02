@@ -46,6 +46,25 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
         self.bf_div.append(self.jquery);
       }
 
+      self.updateDraw = function() {
+        if (self.tower.rate_limited) {
+          x = ' Lim';
+        } else {
+          x = ' go';
+        }
+        
+        if (self.tower.tried_this_frame) {
+          t = ' X';
+        } else {
+          t = ' -';
+        }
+        
+        self.jquery.html(self.tower.targets_in_range 
+          + x + '<br/>' 
+          + self.tower.shots_taken + t
+        );
+      }
+
       self.remove = function () {
         self.jquery.remove();
       }
