@@ -25,7 +25,8 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
     app.wave_time_remaining = 0;    
     app.entities = [];
     app.baddie_count = 0;
-    
+    app.score = 0;
+
     app.add = function(entity) {
       app.entities.push(entity);
     }
@@ -58,13 +59,16 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
     }
 
     app.sendNextWave = function () {
-            
+      
       app.wave++;
 
       if (app.wave >= config.waves.length) {
+        app.wave--;
         app.last_wave_away = true;
         return;
       }
+
+      console.log('sending ' + (app.wave + 1));
 
       app.wave_start = Date.now();
       
@@ -101,11 +105,15 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
       app.lives--;
       app.remove(entity);
       app.baddie_count--;
+      app.score -= 3 * entity.getScore();
     }
     
     app.youGotMe = function (entity) {
       console.log('You killed a ' + entity.baddie_class);
       app.money += entity.value;
+      // score = (health + speed) * value
+      app.score += entity.getScore();
+      if (app.score < 0) { app.score = 0};
       app.remove(entity);
       app.baddie_count--;
     }

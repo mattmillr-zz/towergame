@@ -25,14 +25,14 @@ define([], function () {
           'value': 5
        },
        'beta': {
-          'speed': 24,   // pixels/second
-          'health': 120,
+          'speed': 20,   // pixels/second
+          'health': 400,
           'value': 8
        },
        'gamma': {
-          'speed': 45,   // pixels/second
+          'speed': 80,   // pixels/second
           'health': 70,
-          'value': 15
+          'value': 2
        }
     };
 
@@ -41,24 +41,24 @@ define([], function () {
            'alpha': {'num': 10, 'interval': 450, 'delay': 0}
        },
        {
-           'beta': {'num': 5, 'interval': 300, 'delay': 0},
-           'gamma': {'num': 5, 'interval': 1000, 'delay': 3000}
+           'beta': {'num': 7, 'interval': 300, 'delay': 0},
+           'gamma': {'num': 15, 'interval': 1000, 'delay': 3000}
        },
        {
-           'alpha': {'num': 15, 'interval': 175, 'delay': 0}
+           'alpha': {'num': 25, 'interval': 175, 'delay': 0}
        },
        {
            'beta': {'num': 8, 'interval': 300, 'delay': 0},
            'gamma': {'num': 3, 'interval': 1000, 'delay': 3000}
        }       
     ];    
-    config.wave_length = 10000;
-    config.wave_scatter_interval = 0;
+    config.wave_length = 60000;
+    config.wave_scatter_interval = 5;
     
     config.battlefield = {
        'width': 640,
        'height': 400,
-       'scatter_range': 0,
+       'scatter_range': 7,
        'waypoints': [[0,200]
                    , [150,200]
                    , [150,50]

@@ -49,6 +49,11 @@ define(['views', 'config', 'utils'], function (views, config, utils) {
         self.view.remove();
       }
 
+      self.getScore = function () {
+        return (self.class_config['health'] + self.class_config['speed']) 
+          * self.class_config['value'];
+      }
+
       self.view = new views.Baddie(self);
       return self;
     }

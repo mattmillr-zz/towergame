@@ -52,6 +52,8 @@ define(['config', 'models', 'utils'], function (config, models, utils) {
     bf.setup = function(app) {
       bf.app = app;
 
+      $('a.cc_now').click(bf.app.sendNextWave);
+
       // Tower buttons
       $('a.cc_add_tower').each(function (index, element) {
         tower_type = $(element).data('tower');
@@ -102,8 +104,16 @@ define(['config', 'models', 'utils'], function (config, models, utils) {
       // Update the Control Center.
       $('#cc_lives').html(bf.app.lives);
       $('#cc_money').html(bf.app.money);
-      $('#cc_wave_time_remaining').html(bf.app.wave_time_remaining);
+
+      $('#cc_wave_num').html(bf.app.wave + 1);
+      $('#cc_num_wave').html(config.waves.length);
       
+      wave_time_remaining = Math.round(bf.app.wave_time_remaining/1000)
+      if (wave_time_remaining < 0) { wave_time_remaining = 0; }
+      $('#cc_wave_time_remaining').html(wave_time_remaining);
+
+      $('#cc_score').html(bf.app.score);
+
       if (bf.app.game_over) {
         if (bf.app.win) {
           $("#lose_message").addClass("hidden");

@@ -14,6 +14,7 @@
       }
 
       div#battlefield {
+        background-image: url('images/battlefield_1.png');
         width: 640px;
         height: 400px;
         background-color: #3f3;
@@ -112,7 +113,10 @@
       Lives: <span id="cc_lives"></span>
       &nbsp;&nbsp;&nbsp; Money: $<span id="cc_money"></span>
       <br/>
-      Wave: <span id="cc_wave_time_remaining"></span>
+      Wave: <span id="cc_wave_num"></span>/<span id="cc_num_wave"></span> 
+      Next in: <span id="cc_wave_time_remaining"></span> 
+      <a href="#" data-tower="gunner" class="cc_now">[now]</a>
+      &nbsp;&nbsp;&nbsp; Score: <span id="cc_score"></span> 
       <br/>
       <a href="#" data-tower="gunner" class="cc_add_tower">[G]</a>
       <a href="#" data-tower="bomber" class="cc_add_tower">[B]</a>
