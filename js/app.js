@@ -60,12 +60,15 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
 
     app.sendNextWave = function () {
       
+
+      if (app.wave >= (config.waves.length - 1)) {
+        return;
+      }
+
       app.wave++;
 
-      if (app.wave >= config.waves.length) {
-        app.wave--;
+      if (app.wave >= (config.waves.length - 1)) {
         app.last_wave_away = true;
-        return;
       }
 
       console.log('sending ' + (app.wave + 1));
