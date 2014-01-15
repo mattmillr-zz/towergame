@@ -2,6 +2,7 @@ define(['config', 'models', 'utils'], function (config, models, utils) {
 
     var bf = {};
     bf.entity_type = 'battlefield';
+    bf.jquery = $('div#battlefield');
     bf.geo = new utils.Rectangle(0, 0, config.battlefield.width, config.battlefield.height);
 
     bf.start = new utils.Point(config.battlefield.start_x, config.battlefield.start_y);
@@ -26,15 +27,26 @@ define(['config', 'models', 'utils'], function (config, models, utils) {
     bf.placeStart = function (tower_type) {
       if (!bf.canPlace(tower_type)) { return; } 
       bf.now_placing = tower_type;
-      $('div#battlefield').addClass('aiming');
-      $('div#battlefield').on('click.placing', bf.placeClick);
+      bf.jquery.addClass('aiming');
+      bf.jquery.on('mousemove', function (e) {
+        var tower = $('.tower.adding');
+        if (tower.length < 1) {
+          tower = $('<div class="tower adding ' + tower_type + '" />');
+          bf.jquery.append(tower);
+        }
+        tower.css({
+          top: e.pageY - 10,
+          left: e.pageX - 10
+        });
+      });
+      bf.jquery.on('click.placing', bf.placeClick);
       $(document).on('keyup.placing', function(e) {
         if (e.keyCode == 27) { bf.placeEnd(); }   // esc
       });
     }
     
     bf.placeClick = function (e) {
-      loc = utils.Point(e.offsetX, e.offsetY)
+      loc = utils.Point(e.pageX - 10, e.pageY - 10);
       tower = new models.Tower(bf.now_placing, loc, bf.app);
       bf.app.add(tower);
       bf.app.debit(tower.cost);
@@ -42,8 +54,10 @@ define(['config', 'models', 'utils'], function (config, models, utils) {
     }
     
     bf.placeEnd = function () {
-      $('div#battlefield').off('click.placing');      
-      $('div#battlefield').removeClass('aiming');
+      $('.tower.adding').remove();
+      bf.jquery.off('mousemove')
+      bf.jquery.off('click.placing');      
+      bf.jquery.removeClass('aiming');
       $(document).off('keyup.placing');
       $('a.cc_add_tower').removeClass('placing');
       bf.now_placing = null;
