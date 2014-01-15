@@ -66,19 +66,73 @@
         position: absolute;
         height: 20px;
         width: 20px;
-        border-radius: 2px;
         font-size: 8px;        
         color: #fff;
+        background-image: url(images/towers.png);
       }
       
       .tower.gunner {
-        background-color: #999;
-        border: 1px solid #666;
+        background-position: 0 0;
+      }
+
+      .tower.gunner.firing {
+        background-position: -20px 0;
+      }
+
+      .tower.gunner.level-2 {
+        background-position: 0 -20px;
+      }
+
+      .tower.gunner.level-2.firing {
+        background-position: -20px -20px;
+      }
+
+      .tower.gunner.level-3 {
+        background-position: 0 -40px;
+      }
+
+      .tower.gunner.level-3.firing {
+        background-position: -20px -40px;
+      }
+
+      .tower.gunner.level-4 {
+        background-position: 0 -60px;
+      }
+
+      .tower.gunner.level-4.firing {
+        background-position: -20px -60px;
       }
 
       .tower.bomber {
-        background-color: #666;
-        border: 2px solid #333;
+        background-position: -40px 0;
+      }
+
+      .tower.bomber.firing {
+        background-position: -60px 0;
+      }
+
+      .tower.bomber.level-2 {
+        background-position: -40px -20px;
+      }
+
+      .tower.bomber.level-2.firing {
+        background-position: -60px -20px;
+      }
+
+      .tower.bomber.level-3 {
+        background-position: -40px -40px;
+      }
+
+      .tower.bomber.level-3.firing {
+        background-position: -60px -40px;
+      }
+
+      .tower.bomber.level-4 {
+        background-position: -40px -60px;
+      }
+
+      .tower.bomber.level-4.firing {
+        background-position: -60px -60px;
       }
 
       a.cc_add_tower:link,
