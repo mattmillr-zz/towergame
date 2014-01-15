@@ -31,13 +31,21 @@ Models:
     - Upgrades
 
 TODO:
-  
+
+ * Baddies:
+    * Sprites
+    * Health Bars
+    * Flash for "taking-hit"
  * Towers
+    * Sell/Upgrade:
+      * UI & clicks
+      * Logic - can we afford this?
+      * Check /w Battlefield to make sure only one is in UI state at a time
     * Placement Collision-detection
       * Can't place on another tower
       * Can't place on path (w/in scatter_range px of line between waypoints)
       * -or- Use rectangular build zones on map.
- * SVG
+ * Refactor models & view into separate files & folders
  * Tower upgrades
  * Advanced Targeting
  * Damage & Shield Types
