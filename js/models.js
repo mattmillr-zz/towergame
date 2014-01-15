@@ -100,6 +100,7 @@ define(['views', 'config', 'utils'], function (views, config, utils) {
         if (targets.length > 0) {
           // Naieve algo -- hit the first one.
           self.shots_taken += 1;
+          self.fired_this_frame = true;
           targets[0].takeHit(self.damage);
           self.last_shot = self.app.now;
         }
@@ -107,6 +108,7 @@ define(['views', 'config', 'utils'], function (views, config, utils) {
 
       self.update = function () {
         self.tried_this_frame = false;
+        self.fired_this_frame = false;
         // Can we take a shot?
         if ((self.app.now-self.last_shot) >= 1000/self.rate) {
           self.rate_limited = false;
