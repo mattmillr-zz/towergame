@@ -47,22 +47,11 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
       }
 
       self.updateDraw = function() {
-        if (self.tower.rate_limited) {
-          x = ' Lim';
+        if (self.tower.fired_this_frame) {
+          self.jquery.addClass('firing');
         } else {
-          x = ' go';
+          self.jquery.removeClass('firing');
         }
-        
-        if (self.tower.tried_this_frame) {
-          t = ' X';
-        } else {
-          t = ' -';
-        }
-        
-        self.jquery.html(self.tower.targets_in_range 
-          + x + '<br/>' 
-          + self.tower.shots_taken + t
-        );
       }
 
       self.remove = function () {

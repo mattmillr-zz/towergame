@@ -13,7 +13,7 @@ define([], function () {
     */
 
     config.app = {
-      'frame_length': 10,
+      'frame_length': 20,
       'lives': 10,
       'money': 50
     };
