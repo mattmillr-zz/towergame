@@ -63,6 +63,14 @@ define(['config'], function (config) {
       var d = Math.sqrt((dx*dx)+(dy*dy));
       return d;
     }
+    
+    utils.angle = function (p1, p2) {
+      var dx = p2.x - p1.x;
+      var dy = p2.y - p1.y;
+      var radians = Math.atan2(dy, dx);
+      var degrees = radians * 180 / Math.PI;
+      return degrees + 90;
+    }
 
     utils.Circle = function (x, y, radius) {
       var self = this;

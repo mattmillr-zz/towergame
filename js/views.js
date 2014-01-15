@@ -47,7 +47,9 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
       }
 
       self.updateDraw = function() {
-        if (self.tower.fired_this_frame) {
+        if (self.tower.firing_at) {
+          var angle = utils.angle(self.tower.loc, self.tower.firing_at.loc);
+          self.jquery.css("webkitTransform", "rotate(" + angle + "deg)")
           self.jquery.addClass('firing');
         } else {
           self.jquery.removeClass('firing');
