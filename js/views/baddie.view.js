@@ -18,6 +18,11 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
     self.updateDraw = function () {
       self.jquery.css('left', self.baddie.loc.x);
       self.jquery.css('top', self.baddie.loc.y);
+      if (self.baddie.taking_hit > 0) {
+        self.jquery.addClass('taking-hit');
+      } else {
+        self.jquery.removeClass('taking-hit');
+      }
     }
 
     self.remove = function () {

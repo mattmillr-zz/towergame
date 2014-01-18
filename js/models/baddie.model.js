@@ -13,6 +13,7 @@ define(['views', 'config', 'utils'], function (views, config, utils) {
       self.destination = utils.copyPoint(self.loc);
       self.health = self.class_config.health;
       self.value = self.class_config.value;
+      self.taking_hit = 0;
       
       utils.log('Create Baddie at ' + self.loc.x + ', ' + self.loc.y );
       
@@ -34,11 +35,12 @@ define(['views', 'config', 'utils'], function (views, config, utils) {
         self.loc.moveToward(self.destination, distance); 
 
         self.view.updateDraw();
+        if (self.taking_hit > 0) { self.taking_hit -= 1; };
       }
       
       self.takeHit = function (damage) {
         self.health-=damage;
-        console.log('Hit!', self.health);
+        self.taking_hit = config.taking_hit_indicator_frames;
         if (self.health < 0) {
           self.app.youGotMe(self);
         }

@@ -35,7 +35,6 @@ TODO:
  * Baddies:
     * Sprites
     * Health Bars
-    * Flash for "taking-hit"
  * Towers
     * Sell/Upgrade:
       * UI & clicks
@@ -45,7 +44,6 @@ TODO:
       * Can't place on another tower
       * Can't place on path (w/in scatter_range px of line between waypoints)
       * -or- Use rectangular build zones on map.
- * Refactor models & view into separate files & folders
  * Tower upgrades
  * Advanced Targeting
  * Damage & Shield Types

@@ -13,10 +13,13 @@ define([], function () {
     */
 
     config.app = {
-      'frame_length': 20,
+      'frame_length': 10,
       'lives': 10,
       'money': 50
     };
+
+    config.firing_indicator_frames = 5;
+    config.taking_hit_indicator_frames = 5;
 
     config.baddies = {
        'alpha': {

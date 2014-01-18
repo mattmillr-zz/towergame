@@ -112,7 +112,6 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
     }
     
     app.youGotMe = function (entity) {
-      console.log('You killed a ' + entity.baddie_class);
       app.money += entity.value;
       // score = (health + speed) * value
       app.score += entity.getScore();
