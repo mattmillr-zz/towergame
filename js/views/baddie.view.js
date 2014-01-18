@@ -12,10 +12,14 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
       self.jquery.addClass(self.baddie.baddie_class);
       self.jquery.css('left', self.baddie.loc.x);
       self.jquery.css('top', self.baddie.loc.y);
+      self.jquery.append('<div class="healthbar"><div class="bar"></div></div>');
       self.bf_div.append(self.jquery);
+      console.log(self.jquery);
     }
     
     self.updateDraw = function () {
+      var healthbar_percentage = self.baddie.health / self.baddie.full_health * 100;
+      self.jquery.find('.bar').css({width: healthbar_percentage + '%'});
       self.jquery.css('left', self.baddie.loc.x);
       self.jquery.css('top', self.baddie.loc.y);
       if (self.baddie.taking_hit > 0) {
