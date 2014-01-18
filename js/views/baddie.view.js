@@ -14,7 +14,6 @@ define(['jquery', 'config', 'utils'], function ($, config, utils) {
       self.jquery.css('top', self.baddie.loc.y);
       self.jquery.append('<div class="healthbar"><div class="bar"></div></div>');
       self.bf_div.append(self.jquery);
-      console.log(self.jquery);
     }
     
     self.updateDraw = function () {
