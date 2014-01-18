@@ -83,6 +83,7 @@ define(['config', 'models', 'utils'], function (config, models, utils) {
         if (bf.now_placing == null) {
           if (e.keyCode == 71) { bf.placeStart('gunner'); } // g
           if (e.keyCode == 66) { bf.placeStart('bomber'); } // b
+          if (e.keyCode == 32) { bf.app.sendNextWave(); } // space
         }
       });
       
