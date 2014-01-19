@@ -12,6 +12,7 @@ define(['views', 'config', 'utils'], function (views, config, utils) {
             config.battlefield.scatter_range);
       self.destination = utils.copyPoint(self.loc);
       self.health = self.class_config.health;
+      self.full_health = self.class_config.health;
       self.value = self.class_config.value;
       self.taking_hit = 0;
       
