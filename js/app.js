@@ -47,11 +47,11 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
       delete entity;
     }
 
-    app.scheduleBaddie = function (baddie_type, num, interval, delay) {
+    app.scheduleBaddie = function (baddie_type, num, interval, delay, mult) {
       setTimeout(
         function () { 
           if (app.game_over) { return; }
-          app.add(new models.Baddie(baddie_type, app)); 
+          app.add(new models.Baddie(baddie_type, mult, app)); 
           app.baddie_count++;
         }, 
         delay + (n * interval)
@@ -79,14 +79,18 @@ define(['jquery', 'models', 'utils', 'config', 'battlefield'],
         num = config.waves[app.wave][baddie_type]['num'];
         interval = config.waves[app.wave][baddie_type]['interval'];
         delay = config.waves[app.wave][baddie_type]['delay'];
-
+        mult = 1;
+        if (config.waves[app.wave][baddie_type]['mult'] != undefined) {
+          mult = config.waves[app.wave][baddie_type]['mult']
+        } 
+        
         for (n = 0; n < num; n++) {
           
           adj_interval = interval 
             + (Math.random() * 2 * config.wave_scatter_interval) 
             - config.wave_scatter_interval; 
           
-          app.scheduleBaddie(baddie_type, num, adj_interval, delay);
+          app.scheduleBaddie(baddie_type, num, adj_interval, delay, mult);
         }
 
       }

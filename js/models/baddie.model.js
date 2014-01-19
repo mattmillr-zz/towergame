@@ -1,6 +1,6 @@
 define(['views', 'config', 'utils'], function (views, config, utils) {
 
-    return function (baddie_class, app) {
+    return function (baddie_class, mult, app) {
       var self = this;
       self.entity_type = 'baddie';
       self.baddie_class = baddie_class;
@@ -11,8 +11,8 @@ define(['views', 'config', 'utils'], function (views, config, utils) {
             self.app.waypoints[self.waypoint],
             config.battlefield.scatter_range);
       self.destination = utils.copyPoint(self.loc);
-      self.health = self.class_config.health;
-      self.full_health = self.class_config.health;
+      self.health = self.class_config.health * mult;
+      self.full_health = self.class_config.health * mult;
       self.value = self.class_config.value;
       self.taking_hit = 0;
       

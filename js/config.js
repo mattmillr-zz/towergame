@@ -15,7 +15,7 @@ define([], function () {
     config.app = {
       'frame_length': 10,
       'lives': 10,
-      'money': 50
+      'money': 20
     };
 
     config.firing_indicator_frames = 5;
@@ -24,35 +24,35 @@ define([], function () {
     config.baddies = {
        'alpha': {
           'speed': 30,   // pixels/second
-          'health': 100,
+          'health': 70,
           'value': 5
        },
        'beta': {
           'speed': 20,   // pixels/second
           'health': 400,
-          'value': 8
+          'value': 3
        },
        'gamma': {
           'speed': 80,   // pixels/second
-          'health': 70,
+          'health': 100,
           'value': 2
-       }
+       },
     };
 
     config.waves = [
        {
-           'alpha': {'num': 10, 'interval': 450, 'delay': 0}
+           'alpha': {'num': 10, 'interval': 650, 'delay': 0}
        },
        {
-           'beta': {'num': 7, 'interval': 300, 'delay': 0},
-           'gamma': {'num': 15, 'interval': 1000, 'delay': 3000}
+           'beta': {'num': 7, 'interval': 600, 'delay': 0},
+           'gamma': {'num': 15, 'interval': 1200, 'delay': 3000}
        },
        {
-           'alpha': {'num': 25, 'interval': 175, 'delay': 0}
+           'alpha': {'num': 25, 'interval': 450, 'delay': 0, 'mult': 5}
        },
        {
-           'beta': {'num': 8, 'interval': 300, 'delay': 0},
-           'gamma': {'num': 3, 'interval': 1000, 'delay': 3000}
+           'beta': {'num': 8, 'interval': 600, 'delay': 0, 'mult': 3},
+           'gamma': {'num': 3, 'interval': 1200, 'delay': 3000, 'mult': 4}
        }       
     ];    
     config.wave_length = 60000;
